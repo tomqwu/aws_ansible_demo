@@ -1,0 +1,65 @@
+---
+- name: Create ssh group
+  ec2_group:
+      name: "ssh"
+      description: "ssh"
+      region: "{{ aws_region }}"
+      vpc_id: "{{ vpc_id }}"
+      rules:
+          - proto: tcp
+            type: ssh
+            from_port: 22
+            to_port: 22
+            cidr_ip: 0.0.0.0/0
+
+- name: Create http group
+  ec2_group:
+      name: "http"
+      description: "http"
+      region: "{{ aws_region }}"
+      vpc_id: "{{ vpc_id }}"
+      rules:
+          - proto: tcp
+            type: http
+            from_port: 80
+            to_port: 80
+            cidr_ip: 0.0.0.0/0
+
+- name: Create https group
+  ec2_group:
+      name: "https"
+      description: "https"
+      region: "{{ aws_region }}"
+      vpc_id: "{{ vpc_id }}"
+      rules:
+          - proto: tcp
+            type: https
+            from_port: 443
+            to_port: 443
+            cidr_ip: 0.0.0.0/0
+
+- name: Create DB group
+  ec2_group:
+      name: "mysql"
+      description: "mysql"
+      region: "{{ aws_region }}"
+      vpc_id: "{{ vpc_id }}"
+      rules:
+          - proto: tcp
+            type: tcp
+            from_port: 3306
+            to_port: 3306
+            cidr_ip: 0.0.0.0/0
+
+- name: Create ICMP group
+  ec2_group:
+      name: "icmp"
+      description: "icmp"
+      region: "{{ aws_region }}"
+      vpc_id: "{{ vpc_id }}"
+      rules:
+          - proto: icmp
+            type: "Echo Reply"
+            from_port: -1
+            to_port: -1
+            cidr_ip: 0.0.0.0/0

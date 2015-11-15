@@ -1,0 +1,9 @@
+---
+- name: Create Launch Configuration
+  ec2_lc:
+    region: "{{ aws_region }}"
+    name: "webapp-{{ ansible_date_time.iso8601 | regex_replace('[^a-zA-Z0-9]', '-') }}"
+    image_id: "{{ ami.image_id }}"
+    key_name: "{{ aws_demo_key }}"
+    instance_type: "{{ instance_type }}"
+    security_groups: [ http, https, ssh ]

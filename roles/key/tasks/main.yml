@@ -1,0 +1,20 @@
+---
+#- name: Generate ec2 key
+#  ec2_key:
+#    name: "{{ key_pair }}"
+#    region: "{{ aws_region }}"
+#  register: ec2_key
+#
+#- name: save private key
+#  copy: 
+#    content: "{{ ec2_key.key.private_key }}"
+#    dest: roles/key/files/aws_demo_key.pem
+#    mode: 0600
+#  when: ec2_key.changed
+
+- name: ec2 key_pair
+  ec2_key: 
+    name: "{{ key_pair }}"
+    key_material: "{{ item }}"
+    region: "{{ aws_region }}"
+  with_file: ~/.ssh/id_rsa.pub

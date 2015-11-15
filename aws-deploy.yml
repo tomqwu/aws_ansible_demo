@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  roles:
+    #- key
+    #- vpc
+    #- security_groups
+    #- launch_ec2
+
+- hosts: tag_type_database
+  remote_user: ubuntu
+  sudo: yes
+  roles:
+    - mysql
+
+- hosts: tag_type_web
+  remote_user: ubuntu
+  sudo: yes
+  roles:
+    - php-fpm
+    - nginx
+    - wordpress
