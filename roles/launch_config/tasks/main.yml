@@ -6,6 +6,6 @@
     image_id: "{{ ami.image_id }}"
     key_name: "{{ key_pair }}"
     instance_type: "{{ instance_type }}"
-    security_groups: [ sg-1bb1d67d, sg-d7e780b1, sg-19b1d67f, sg-1cb1d67a ]
+    security_groups: [ sg-27e88841, sg-2ce8884a, sg-22e88844, sg-5ee88838 ]
     assign_public_ip: yes
     

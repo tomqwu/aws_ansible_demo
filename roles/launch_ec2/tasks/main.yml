@@ -10,7 +10,7 @@
     instance_type: "{{ instance_type }}"
     image: "{{ ubuntu_image.ami }}"
     wait: yes
-    wait_timeout: 500
+    wait_timeout: 2000
     instance_tags: { name: db, type: database, env: demo }
     vpc_subnet_id: "{{ vpc.subnets[1].id }}"
     assign_public_ip: yes
@@ -42,7 +42,7 @@
     instance_type: "{{ instance_type }}"
     image: "{{ ubuntu_image.ami }}"
     wait: yes
-    wait_timeout: 500
+    wait_timeout: 2000
     instance_tags: { name: www, type: web, env: demo }
     vpc_subnet_id: "{{ vpc.subnets[0].id }}"
     assign_public_ip: yes

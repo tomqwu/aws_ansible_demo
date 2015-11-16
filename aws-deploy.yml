@@ -3,10 +3,10 @@
   connection: local
   gather_facts: no
   roles:
-    #- key
-    #- vpc
-    #- security_groups
-    #- launch_ec2
+    - key
+    - vpc
+    - security_groups
+    - launch_ec2
 
 - hosts: tag_type_database
   remote_user: ubuntu

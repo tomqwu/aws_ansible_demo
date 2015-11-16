@@ -6,5 +6,10 @@
   template: src=default.conf dest=/etc/nginx/sites-available/default
   notify: restart nginx
 
+- name: Copy ssl key and cert
+  copy: src=files/nginx.key dest=/etc/nginx/nginx.key mode=0644
+  
+- copy: src=files/nginx.crt dest=/etc/nginx/nginx.crt mode=0644
+
 - name: http service state
   service: name=nginx state=started enabled=yes
