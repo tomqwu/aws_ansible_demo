@@ -21,3 +21,11 @@
     - php-fpm
     - nginx
     - wordpress
+
+- hosts: tag_type_web
+  connection: local
+  roles:
+    - ami
+    - launch_config
+    #- elb
+    #- auto_scaling

@@ -4,16 +4,14 @@
     region: "{{ aws_region }}"
     name: webapp
     state: present
-    zones: "{{ az_web }}"
+    zones: 
+      - "{{ az_web }}"
+      - "{{ az_db }}"
     connection_draining_timeout: 60
     listeners:
       - protocol: http
         load_balancer_port: 80
         instance_port: 80
-    listeners:
-      - protocol: https
-        load_balancer_port: 443
-        instance_port: 443
     health_check:
       ping_protocol: http
       ping_port: 80

@@ -4,6 +4,8 @@
     region: "{{ aws_region }}"
     name: "webapp-{{ ansible_date_time.iso8601 | regex_replace('[^a-zA-Z0-9]', '-') }}"
     image_id: "{{ ami.image_id }}"
-    key_name: "{{ aws_demo_key }}"
+    key_name: "{{ key_pair }}"
     instance_type: "{{ instance_type }}"
-    security_groups: [ http, https, ssh ]
+    security_groups: [ sg-1bb1d67d, sg-d7e780b1, sg-19b1d67f, sg-1cb1d67a ]
+    assign_public_ip: yes
+    
