@@ -6,8 +6,6 @@ aws_region: us-east-1
 az_web: us-east-1c
 az_db: us-east-1d
 instance_type: t2.micro
-web_subnet: subnet-01966b77
-db_subnet: subnet-d7ebff8e
 key_pair: aws_demo_key
 
 # Variables listed here are applicable to all host groups
